@@ -1,0 +1,87 @@
+.landing {
+  /* min-height: 100svh; */
+  width: 100%;
+  background-color: #ffffff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-title {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: clamp(48px, 9vw, 91px);
+  line-height: 1;
+  color: #000000;
+  text-transform: none;
+}
+
+.landing-title-italic {
+  font-style: italic;
+}
+
+.landing-photo {
+  margin-top: 1rem;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  border-radius: 0.35rem;
+}
+
+.landing-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-agency {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.about-agency-text {
+  flex: 1 1 auto;
+}
+
+.about-agency-text p {
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.25;
+  color: #000000;
+  max-width: 30ch;
+}
+
+.about-agency-cta {
+  flex-shrink: 0;
+}
+
+.about-agency-cta a {
+  display: inline-block;
+  font-family: "Instrument Serif", serif;
+  font-size: 1.8rem;
+  color: #000000;
+  background-color: #ffd700;
+  padding: 1rem 2.75rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.about-agency-cta a:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .about-agency {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
