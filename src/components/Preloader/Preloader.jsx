@@ -1,40 +1,29 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLenis } from "lenis/react";
 
-import Button from "@/components/Button/Button";
+import {
+  TopographicMap,
+  LogoMark,
+} from "@/components/TopographicMap/TopographicMap";
 
 import "./Preloader.css";
 
-const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
-const EXIT_ANIMATION_MS = 700;
+const REVEAL_MS = 3200;
+const EXIT_MS = 3600;
+const EXIT_DURATION_MS = 1000;
 
 let isInitialLoad = true;
 
-export default function Preloader({
-  title = "Salle Blanche",
-  duration = 2600,
-  buttonText = "Enter Website",
-  buttonHref = "#",
-  onEnter,
-  onAnimationComplete,
-}) {
+export default function Preloader() {
   const lenis = useLenis();
   const [isVisible, setIsVisible] = useState(isInitialLoad);
-  const [isScrollLocked, setIsScrollLocked] = useState(isInitialLoad);
-  const [progress, setProgress] = useState(0);
-  const [hasFinishedLoading, setHasFinishedLoading] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
 
-  /* lock/unlock scroll while preloader is active */
+  /* lock scroll while the preloader is on screen */
   useEffect(() => {
-    if (!isScrollLocked) {
-      if (lenis) lenis.start();
-      document.body.style.overflow = "";
-      return;
-    }
+    if (!isVisible) return;
 
     if (lenis) lenis.stop();
     document.body.style.overflow = "hidden";
@@ -43,54 +32,30 @@ export default function Preloader({
       if (lenis) lenis.start();
       document.body.style.overflow = "";
     };
-  }, [lenis, isScrollLocked]);
+  }, [lenis, isVisible]);
 
-  /* animate progress from 0 to 100 */
+  /* reveal the page content, then fade the preloader out */
   useEffect(() => {
     if (!isVisible) return;
 
-    let frameId = null;
-    const startTime = performance.now();
+    const revealTimer = setTimeout(() => {
+      window.__preloaderRevealed = true;
+      window.dispatchEvent(new Event("preloader:reveal"));
+    }, REVEAL_MS);
 
-    const tick = (now) => {
-      const elapsed = now - startTime;
-      const ratio = clamp(elapsed / duration, 0, 1);
-      const percent = Math.round(ratio * 100);
+    const exitTimer = setTimeout(() => setIsExiting(true), EXIT_MS);
 
-      setProgress(percent);
-
-      if (percent >= 100) {
-        setHasFinishedLoading(true);
-        return;
-      }
-
-      frameId = requestAnimationFrame(tick);
-    };
-
-    frameId = requestAnimationFrame(tick);
-
-    return () => {
-      if (frameId) cancelAnimationFrame(frameId);
-    };
-  }, [duration, isVisible]);
-
-  const loadingText = useMemo(() => `Loading... ${progress}%`, [progress]);
-
-  const handleEnterClick = (event) => {
-    if (event) event.preventDefault();
-    if (!hasFinishedLoading || isExiting) return;
-
-    if (onEnter) onEnter(event);
-
-    setIsExiting(true);
-    setIsScrollLocked(false);
-
-    window.setTimeout(() => {
+    const unmountTimer = setTimeout(() => {
       isInitialLoad = false;
       setIsVisible(false);
-      if (onAnimationComplete) onAnimationComplete();
-    }, EXIT_ANIMATION_MS);
-  };
+    }, EXIT_MS + EXIT_DURATION_MS);
+
+    return () => {
+      clearTimeout(revealTimer);
+      clearTimeout(exitTimer);
+      clearTimeout(unmountTimer);
+    };
+  }, [isVisible]);
 
   if (!isVisible) return null;
 
@@ -99,40 +64,8 @@ export default function Preloader({
       className={`preloader ${isExiting ? "is-exiting" : ""}`}
       aria-label="Website preloader"
     >
-      <div className="preloader-inner">
-        <div className="preloader-title-wrap">
-          <h2 className="preloader-title preloader-title-base">{title}</h2>
-          <h2
-            className="preloader-title preloader-title-fill"
-            style={{ width: `${progress}%` }}
-          >
-            {title}
-          </h2>
-        </div>
-
-        <div className="preloader-action-slot">
-          <p
-            className={`preloader-loading ${hasFinishedLoading ? "is-hidden" : ""} mono`}
-            aria-live="polite"
-          >
-            {loadingText}
-          </p>
-
-          <div
-            className={`preloader-button-wrap ${hasFinishedLoading ? "is-visible" : ""}`}
-          >
-            <Button
-              href={buttonHref}
-              onClick={handleEnterClick}
-              className="preloader-enter-button"
-            >
-              {buttonText}
-            </Button>
-          </div>
-        </div>
-      </div>
+      <TopographicMap />
+      <LogoMark />
     </section>
   );
 }
-
-export { isInitialLoad };

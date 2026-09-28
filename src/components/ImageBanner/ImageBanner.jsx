@@ -14,12 +14,13 @@ const ImageBanner = ({
         <img src={image} alt="" />
       </div>
 
+      {logo && <img className="image-banner-logo" src={logo} alt="" />}
+
       <div className="container">
         <div className="image-banner-heading">
           <Copy type="lines" animateOnScroll>
             <h4>{heading[0]}</h4>
           </Copy>
-          {logo && <img className="image-banner-logo" src={logo} alt="" />}
           <Copy type="lines" animateOnScroll>
             <h4>{heading[1]}</h4>
           </Copy>

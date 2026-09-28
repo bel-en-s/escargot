@@ -7,6 +7,7 @@ import { ViewTransitions } from "next-view-transitions";
 
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
+import Preloader from "@/components/Preloader/Preloader";
 
 const MOBILE_BREAKPOINT = 1000;
 const VIEW_TRANSITION_SETTLE_MS = 1600;
@@ -89,6 +90,7 @@ export default function ClientLayout({ children }) {
             {pathname !== "/" && <Footer />}
           </div>
         </div>
+        <Preloader />
       </ReactLenis>
     </ViewTransitions>
   );

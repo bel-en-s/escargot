@@ -1,6 +1,10 @@
 import ImageBanner from "@/components/ImageBanner/ImageBanner";
 import Copy from "@/components/Copy/Copy";
 import Header from "@/components/Header/Header";
+import {
+  TopographicMap,
+  LogoMark,
+} from "@/components/TopographicMap/TopographicMap";
 
 import "./landing.css";
 
@@ -17,7 +21,7 @@ export default function Home() {
       <Header />
 
       <section className="landing">
-        <Copy type="lines" animateOnScroll={false} delay={0.15}>
+        <Copy mode="block" animateOnScroll={false} waitForPreloader>
           <h1 className="landing-title">
             Escargot <span className="landing-title-italic">Adventures</span>
           </h1>
@@ -30,7 +34,7 @@ export default function Home() {
 
       <section className="about-agency" id="about">
         <div className="about-agency-text">
-          <Copy type="lines" animateOnScroll>
+          <Copy mode="block" animateOnScroll>
             <p>
               Escargot is a travel agency eco-friendly, focusing on cycling and
               exotic tourism.
@@ -55,7 +59,7 @@ export default function Home() {
         </div>
       </section>
 
-      <ImageBanner image="/canoa.jpg" logo="/logo-verde.png" />
+      <ImageBanner image="/canoa.jpg" logo="/1x/Recurso 7estrella.png" />
 
       <section className="trips">
         <h2 className="trips-heading">Explore our trips</h2>
@@ -86,6 +90,23 @@ export default function Home() {
           <button type="submit">Send</button>
         </form>
       </section>
+
+      <footer className="topo-footer" id="footer">
+        <TopographicMap />
+        <div className="topo-footer-content">
+          <LogoMark />
+          <p className="topo-footer-text">Escargot Adventures</p>
+          <p className="topo-footer-copy">
+            &copy; 2025 Escargot Adventures. All rights reserved.
+          </p>
+        </div>
+        <div className="topo-footer-dev">
+          <span>developed by</span>
+          <a href="https://www.divinodivino.com.ar/" aria-label="Divino Divino">
+            <img src="/logo-dd.png" alt="developed by" />
+          </a>
+        </div>
+      </footer>
     </>
   );
 }

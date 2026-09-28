@@ -39,10 +39,16 @@ export default function Copy({
   trigger = null,
   triggerPoint = null,
   start = null,
+  mode = "slide",
+  blockColor = "#3e4c05",
+  waitForPreloader = false,
+  stagger = 0.15,
+  duration = 0.75,
 }) {
   const containerRef = useRef(null);
   const splitInstanceRefs = useRef([]);
   const scrollTriggerRefs = useRef([]);
+  const revealListenerRef = useRef(null);
 
   useGSAP(
     () => {
@@ -56,6 +62,24 @@ export default function Copy({
 
         splitInstanceRefs.current.forEach((split) => split?.revert());
         splitInstanceRefs.current = [];
+
+        const wrappers = containerRef.current?.querySelectorAll(
+          ".block-line-wrapper",
+        );
+        wrappers?.forEach((wrapper) => {
+          if (wrapper.parentNode && wrapper.firstChild) {
+            wrapper.parentNode.insertBefore(wrapper.firstChild, wrapper);
+            wrapper.remove();
+          }
+        });
+
+        if (revealListenerRef.current) {
+          window.removeEventListener(
+            "preloader:reveal",
+            revealListenerRef.current,
+          );
+          revealListenerRef.current = null;
+        }
       };
 
       const buildAnimations = async () => {
@@ -70,15 +94,101 @@ export default function Copy({
           ? Array.from(containerRef.current.children)
           : [containerRef.current];
 
-        const resolvedType = type === "words" ? "words" : "lines";
         const resolvedStart = start ?? "top 80%";
 
-        const triggerElement = resolveTriggerElement(
-          triggerPoint ?? trigger,
-          containerRef.current,
-        );
+        if (mode === "block") {
+          buildBlockReveal(targetElements, resolvedStart);
+          return;
+        }
 
-        /* split and animate lines or words */
+        buildSlideReveal(targetElements, resolvedStart);
+      };
+
+      const buildBlockReveal = (targetElements, resolvedStart) => {
+        const lineRefs = [];
+        const blockRefs = [];
+
+        targetElements.forEach((element) => {
+          const split = SplitText.create(element, {
+            type: "lines",
+            linesClass: "block-line++",
+            lineThreshold: 0.1,
+          });
+          splitInstanceRefs.current.push(split);
+
+          split.lines.forEach((line) => {
+            const wrapper = document.createElement("div");
+            wrapper.className = "block-line-wrapper";
+            line.parentNode.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
+
+            const block = document.createElement("div");
+            block.className = "block-revealer";
+            block.style.backgroundColor = blockColor;
+            wrapper.appendChild(block);
+
+            lineRefs.push(line);
+            blockRefs.push(block);
+          });
+        });
+
+        gsap.set(lineRefs, { opacity: 0 });
+        gsap.set(blockRefs, { scaleX: 0, transformOrigin: "left center" });
+
+        const reveal = () => {
+          blockRefs.forEach((block, index) => {
+            const line = lineRefs[index];
+            const tl = gsap.timeline({ delay: delay + index * stagger });
+
+            tl.to(block, {
+              scaleX: 1,
+              duration,
+              ease: "power4.inOut",
+            });
+            tl.set(line, { opacity: 1 });
+            tl.set(block, { transformOrigin: "right center" });
+            tl.to(block, {
+              scaleX: 0,
+              duration,
+              ease: "power4.inOut",
+            });
+          });
+        };
+
+        if (animateOnScroll) {
+          const triggerElement = resolveTriggerElement(
+            triggerPoint ?? trigger,
+            containerRef.current,
+          );
+
+          const scrollTrigger = ScrollTrigger.create({
+            trigger: triggerElement,
+            start: resolvedStart,
+            once: true,
+            onEnter: reveal,
+            refreshPriority: -1,
+          });
+          scrollTriggerRefs.current.push(scrollTrigger);
+          return;
+        }
+
+        if (waitForPreloader) {
+          if (window.__preloaderRevealed) {
+            reveal();
+            return;
+          }
+
+          const handler = () => reveal();
+          revealListenerRef.current = handler;
+          window.addEventListener("preloader:reveal", handler, { once: true });
+          return;
+        }
+
+        reveal();
+      };
+
+      const buildSlideReveal = (targetElements, resolvedStart) => {
+        const resolvedType = type === "words" ? "words" : "lines";
         const splitUnits = [];
 
         targetElements.forEach((element) => {
@@ -119,6 +229,11 @@ export default function Copy({
         });
 
         if (animateOnScroll) {
+          const triggerElement = resolveTriggerElement(
+            triggerPoint ?? trigger,
+            containerRef.current,
+          );
+
           const scrollTrigger = ScrollTrigger.create({
             trigger: triggerElement,
             start: resolvedStart,
@@ -146,6 +261,11 @@ export default function Copy({
         trigger,
         triggerPoint,
         start,
+        mode,
+        blockColor,
+        waitForPreloader,
+        stagger,
+        duration,
       ],
     },
   );
