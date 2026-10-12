@@ -1,36 +1,24 @@
+# build output
+dist/
+# generated types
+.astro/
+
 # dependencies
-/node_modules
-/.pnp
-.pnp.*
+node_modules/
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# env files
-.env*
 
-# vercel
-.vercel
+# environment variables
+.env
+.env.production
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# macOS-specific files
+.DS_Store
 
-# archives
-*.zip
-
-# unused source images
-/src/Depositphotos_*.jpg
+# jetbrains setting folder
+.idea/

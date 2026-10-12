@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <h1>Escargot Adventures</h1>
+  </main>
+</Layout>
+
+<style>
+  main {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+
+  h1 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+</style>
