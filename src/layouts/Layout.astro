@@ -33,6 +33,7 @@ const {
     <title>{title}</title>
   </head>
   <body>
+    <div class="loader" aria-hidden="true"></div>
     <Header />
     <slot />
     <Footer />
@@ -44,6 +45,21 @@ const {
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
   gsap.registerPlugin(ScrollToPlugin);
+
+  const loader = document.querySelector(".loader");
+  if (loader) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      loader.remove();
+    } else {
+      gsap.to(loader, {
+        yPercent: -100,
+        duration: 1.2,
+        ease: "power4.inOut",
+        delay: 0.2,
+        onComplete: () => loader.remove(),
+      });
+    }
+  }
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -88,5 +104,13 @@ const {
   img {
     max-width: 100%;
     display: block;
+  }
+
+  .loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #000000;
+    pointer-events: none;
   }
 </style>

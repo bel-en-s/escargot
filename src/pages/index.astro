@@ -5,7 +5,8 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <main>
     <div class="hero-bg" aria-hidden="true">
-      <img src="/landing.jpg" alt="" />
+      <img class="hero-bg-img" src="/landing.jpg" alt="" />
+      <img class="hero-bg-img" src="/Depositphotos_387914348_L.jpg" alt="" />
     </div>
     <!-- <video
       class="hero-video"
@@ -21,14 +22,18 @@ import Layout from "../layouts/Layout.astro";
     </video> -->
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-bottom">
-      <span>For the</span>
+      <div class="hero-tagline">
+        <span>For the</span>
+        <span class="hero-tagline-line" aria-hidden="true"></span>
+        <span>conscious traveller</span>
+      </div>
       <h1 class="hero-wordmark">
         <span>ESCARGOT</span>
         <img src="/hero-solo.svg" alt="Escargot" class="hero-wordmark-logo" />
         
         <em>ADVENTURES</em>
       </h1>
-      <span>conscious traveller</span>
+      <div class="hero-bottom-line" aria-hidden="true"></div>
     </div>
   </main>
 
@@ -36,19 +41,59 @@ import Layout from "../layouts/Layout.astro";
     <div class="split-text">
       <p class="split-eyebrow">Why Escargot</p>
       <h2 class="split-title">
-        Travel at the pace
-        <em>of discovery</em>
+        <span>For the</span>
+        <span><em>Slow Movers</em></span>
       </h2>
       <p class="split-copy">
-        We craft small-group journeys that take their time — so you can soak in
-        every place, every person, every moment.
+       We aim to connect with the lands we're exploring, the people we're engaging with and embrace the physical exertion that comes with traversing the globe under your own steam. 
+
       </p>
       <a class="split-cta" href="#trips">Explore trips</a>
+      <img
+        class="split-topo"
+        src="/topographic-yellow.svg"
+        alt=""
+        aria-hidden="true"
+      />
     </div>
     <div class="split-media">
       <img src="/Depositphotos_92108696_XL.jpg" alt="Travel at the pace of discovery" />
     </div>
   </section>
+
+  <section class="intro" id="about" >
+    <div class="intro-text">
+      <p>
+        Escargot is a travel agency — eco-friendly, focusing on cycling and
+        exotic tourism.
+      </p>
+      
+    </div>
+ <div class="intro-cta">
+      <a class="intro-button" href="#contact">Book your trip</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <img src="/Depositphotos_266141058_XL.jpg" alt="Cycling" />
+      <h3>Cycling</h3>
+    </div>
+    <div class="feature">
+      <img src="/Depositphotos_531202820_XL.jpg" alt="Eco-friendly" />
+      <h3>Eco-friendly</h3>
+    </div>
+    <div class="feature">
+      <img src="/Depositphotos_59992179_XL.jpg" alt="Exotic tourism" />
+      <h3>Exotic tourism</h3>
+    </div>
+    <div class="feature">
+      <img src="/Depositphotos_815678142_L.jpg" alt="Slow travel" />
+      <h3>Slow travel</h3>
+    </div>
+  </section>
+
+ 
 
   <section class="statement">
     <img
@@ -77,7 +122,7 @@ import Layout from "../layouts/Layout.astro";
     </h2>
   </section>
 
-    <section id="about" class="about">
+    <section class="about">
     <div class="about-heading">
       <h2 class="about-title">
         <span class="about-title-italic">Slow down...</span>
@@ -194,8 +239,6 @@ import Layout from "../layouts/Layout.astro";
     position: absolute;
     inset: 0;
     z-index: 0;
-    clip-path: polygon(2% 2%, 98% 2%, 98% 98%, 2% 98%);
-    will-change: clip-path;
   }
 
   .hero-bg img {
@@ -205,6 +248,11 @@ import Layout from "../layouts/Layout.astro";
     height: 100%;
     object-fit: cover;
     object-position: top;
+    transition: opacity 0.6s ease;
+  }
+
+  .hero-bg img + img {
+    opacity: 0;
   }
 
   .hero-video {
@@ -235,6 +283,28 @@ import Layout from "../layouts/Layout.astro";
     padding: 0 2rem 2rem;
   }
 
+  .hero-tagline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-tagline-line {
+    flex: 1;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 0 1.5rem;
+    opacity: 0.7;
+  }
+
   .hero-wordmark {
     display: flex;
     justify-content: space-between;
@@ -260,6 +330,14 @@ import Layout from "../layouts/Layout.astro";
     object-fit: contain;
   }
 
+  .hero-bottom-line {
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    margin-top: 1rem;
+    opacity: 0.7;
+  }
+
   h1 {
     font-family: "Instrument Serif", serif;
     font-weight: 400;
@@ -272,15 +350,100 @@ import Layout from "../layouts/Layout.astro";
     /* background-color: green; */
   }
 
-  .split {
+  .intro {
+    position: relative;
+    overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     background-color: #ffffff;
     padding: 2rem;
+    gap: 2rem;
+  }
+
+  .intro-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .intro-text p {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    color: #000000;
+    max-width: 40ch;
+  }
+
+  .intro-cta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .intro-button {
+    font-family: "Instrument Serif", serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #000000;
+    background-color: #ffd700;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.25s ease;
+  }
+
+  .intro-button:hover {
+    transform: scale(1.04);
+  }
+
+  .features {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0 2rem;
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .feature img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 3vh;
+  }
+
+  .feature h3 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #000000;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    /* padding: 2rem; */
   }
 
   .split-text {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -288,6 +451,11 @@ import Layout from "../layouts/Layout.astro";
     text-align: center;
     gap: 1.5rem;
     padding: 4rem 2rem;
+  }
+
+  .split-text > *:not(.split-topo) {
+    position: relative;
+    z-index: 1;
   }
 
   .split-eyebrow {
@@ -306,6 +474,10 @@ import Layout from "../layouts/Layout.astro";
     letter-spacing: -0.02em;
     color: #000000;
     width: 50%;
+  }
+
+  .split-title span {
+    display: block;
   }
 
   .split-title em {
@@ -336,12 +508,26 @@ import Layout from "../layouts/Layout.astro";
     transform: scale(1.04);
   }
 
+  .split-topo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, -20%);
+    width: 110%;
+    max-width: 320px;
+    height: auto;
+    z-index: 0;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   .split-media img {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    padding: 50px;
+    object-fit: contain;
+
+    padding: 2rem;
   }
 
   .statement {
@@ -359,14 +545,14 @@ import Layout from "../layouts/Layout.astro";
   .statement-text {
     position: relative;
     z-index: 1;
-    font-family: "Instrument Serif", serif;
+    font-family: Instrument Serif, serif;
     font-weight: 400;
     font-size: clamp(2.5rem, 7vw, 7rem);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    word-spacing: 0.35em;
+    line-height: 0.9;
+    letter-spacing: -.01em;
+    /* word-spacing: .35em; */
     text-align: center;
-    color: #000000;
+    color: #000;
     max-width: 22ch;
   }
 
@@ -496,6 +682,8 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .trips {
+    position: relative;
+    overflow: hidden;
     width: 100%;
     background-color: #ffffff;
     padding: 0.5rem 2rem;
@@ -589,13 +777,32 @@ import Layout from "../layouts/Layout.astro";
       font-size: 8.5vw;
     }
 
+    .intro {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .intro-cta {
+      justify-content: flex-start;
+    }
+
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+
     .split {
       grid-template-columns: 1fr;
     }
 
+    .split-topo {
+      display: none;
+    }
+
     .split-text {
       padding: 3rem 1.5rem;
-      order: 2;
+      order: 1;
     }
 
     .split-media {
@@ -664,31 +871,47 @@ import Layout from "../layouts/Layout.astro";
     .hero-video {
       display: none;
     }
-
-    .hero-bg {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    }
   }
 </style>
 
 <script>
-  import gsap from "gsap";
-  import { CustomEase } from "gsap/CustomEase";
+  const heroPhotos = [
+    // "/landing.jpg",
+    "/Depositphotos_387914348_L.jpg",
+    // "/Depositphotos_266141058_XL.jpg",
+  ];
 
-  gsap.registerPlugin(CustomEase);
-  CustomEase.create("hop", "0.9, 0, 0.1, 1");
+  heroPhotos.forEach((src) => {
+    const im = new Image();
+    im.src = src;
+  });
 
-  const heroBg = document.querySelector(".hero-bg");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const heroImgs = Array.from(document.querySelectorAll(".hero-bg img"));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  if (heroBg && !reducedMotion) {
-    const tl = gsap.timeline({ delay: 0.15 });
+  if (heroImgs.length >= 1 && !reduceMotion) {
+    heroImgs[0].src = heroPhotos[0];
+    heroImgs[0].style.opacity = "1";
 
-    tl.to(heroBg, {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 2,
-      ease: "hop",
-    });
+    if (heroPhotos.length >= 2 && heroImgs.length >= 2) {
+      heroImgs[1].src = heroPhotos[1];
+      heroImgs[1].style.opacity = "0";
+
+      let visible = 0;
+      let photoIdx = 0;
+
+      setInterval(() => {
+        const nextPhotoIdx = (photoIdx + 1) % heroPhotos.length;
+        const hidden = heroImgs[1 - visible];
+        hidden.src = heroPhotos[nextPhotoIdx];
+        hidden.style.opacity = "1";
+        heroImgs[visible].style.opacity = "0";
+        visible = 1 - visible;
+        photoIdx = nextPhotoIdx;
+      }, 4000);
+    } else {
+      heroImgs.slice(1).forEach((img) => (img.style.display = "none"));
+    }
   }
 
   const scroll = document.getElementById("trips-scroll");
