@@ -2,7 +2,6 @@
 ---
 
 <form class="contact-form">
-  
   <h2 class="contact-title">Ready to Travel different?</h2>
 
   <div class="contact-grid">
@@ -39,7 +38,9 @@
     <label class="contact-field">
       <span class="contact-label">It's a...</span>
       <select name="tripType">
-        <option value="" selected disabled>Select...</option>
+        <option value="" selected disabled>
+          Select...
+        </option>
         <option value="adventure">Adventure</option>
         <option value="leisure">Leisure</option>
         <option value="business">Business</option>
@@ -63,7 +64,9 @@
     ></textarea>
   </label>
 
-  <button class="contact-submit" type="submit">Send</button>
+  <button class="contact-submit" type="submit">
+    Send
+  </button>
 </form>
 
 <style>
@@ -108,7 +111,7 @@
     font-size: 1.3rem;
     line-height: 1;
     color: #000000;
-        text-align: justify;
+    text-align: justify;
   }
 
   .contact-field input,
@@ -151,8 +154,8 @@
     font-family: "Instrument Serif", serif;
     font-size: 1.4rem;
     line-height: 1;
-    color: #000000;
-    background-color: #ffd700;
+    color: #ffffff;
+    background-color: #244a3f;
     border: none;
     border-radius: 5px;
     padding: 0.75rem 3rem;
@@ -166,11 +169,34 @@
 
   @media (max-width: 700px) {
     .contact-form {
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 1.25rem;
+      gap: 1.5rem;
+    }
+
+    .contact-title {
+      font-size: 2rem;
     }
 
     .contact-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1rem;
+      row-gap: 1.25rem;
+    }
+
+    .contact-label {
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    .contact-field input,
+    .contact-field select,
+    .contact-message textarea {
+      font-size: 1rem;
+      padding: 0.4rem 0;
+    }
+
+    .contact-submit {
+      padding: 0.6rem 2.5rem;
     }
   }
 </style>

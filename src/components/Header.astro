@@ -159,9 +159,10 @@ const links = [
   if (header && hero) {
     const lines = header.querySelectorAll(".site-header-line");
     const fgEls = header.querySelectorAll(
-      ".site-nav-links a:not(.site-nav-button), .site-social a, .site-wordmark"
+      ".site-nav-links a:not(.site-nav-button), .site-social a, .site-wordmark",
     );
     const burger = header.querySelectorAll(".menu-toggle span");
+    const logo = header.querySelector(".site-logo img");
 
     let overHero = null;
     let initialized = false;
@@ -170,12 +171,40 @@ const links = [
       const dur = animate ? 0.45 : 0;
       const bg = isOverHero ? "rgba(255, 255, 255, 0)" : "#ffffff";
       const fg = isOverHero ? "#ffffff" : "#000000";
-      
+      const mobile = window.matchMedia("(max-width: 700px)").matches;
+      const logoBig = mobile ? "2.75rem" : "4.25rem";
+      const logoSmall = mobile ? "1.75rem" : "2rem";
 
-      gsap.to(header, { backgroundColor: bg, duration: dur, ease: "power2.inOut", overwrite: "auto" });
-      gsap.to(lines, { backgroundColor: fg, duration: dur, ease: "power2.inOut", overwrite: "auto" });
-      gsap.to(fgEls, { color: fg, duration: dur, ease: "power2.inOut", overwrite: "auto" });
-      gsap.to(burger, { backgroundColor: fg, duration: dur, ease: "power2.inOut", overwrite: "auto" });
+      gsap.to(header, {
+        backgroundColor: bg,
+        duration: dur,
+        ease: "power2.inOut",
+        overwrite: "auto",
+      });
+      gsap.to(lines, {
+        backgroundColor: fg,
+        duration: dur,
+        ease: "power2.inOut",
+        overwrite: "auto",
+      });
+      gsap.to(fgEls, {
+        color: fg,
+        duration: dur,
+        ease: "power2.inOut",
+        overwrite: "auto",
+      });
+      gsap.to(burger, {
+        backgroundColor: fg,
+        duration: dur,
+        ease: "power2.inOut",
+        overwrite: "auto",
+      });
+      gsap.to(logo, {
+        height: isOverHero ? logoBig : logoSmall,
+        duration: dur,
+        ease: "power2.inOut",
+        overwrite: "auto",
+      });
 
       lines.forEach((line) => {
         line.style.display = isOverHero ? "none" : "block";
@@ -243,7 +272,7 @@ const links = [
 
   .site-logo img {
     width: auto;
-    height: 2.25rem;
+    height: 4.25rem;
     object-fit: contain;
   }
 
@@ -328,7 +357,9 @@ const links = [
     width: 28px;
     height: 2px;
     background-color: #000000;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
 
   .menu-toggle.is-open span:nth-child(1) {
@@ -402,7 +433,9 @@ const links = [
       font-size: 2rem;
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
     }
 
     .site-header.is-open .site-nav-links a {
@@ -434,7 +467,9 @@ const links = [
     .site-social a {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
     }
 
     .site-header.is-open .site-social a {

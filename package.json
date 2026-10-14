@@ -14,5 +14,9 @@
   "dependencies": {
     "astro": "^7.3.8",
     "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.1"
   }
 }

@@ -7,10 +7,8 @@ interface Props {
   description?: string;
 }
 
-const {
-  title = "Escargot Adventures",
-  description = "Escargot Adventures",
-} = Astro.props;
+const { title = "Escargot Adventures", description = "Escargot Adventures" } =
+  Astro.props;
 ---
 
 <!doctype html>
@@ -21,10 +19,7 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@400;700;800;900&display=swap"

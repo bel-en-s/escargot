@@ -30,7 +30,7 @@ import Layout from "../layouts/Layout.astro";
       <h1 class="hero-wordmark">
         <span>ESCARGOT</span>
         <img src="/hero-solo.svg" alt="Escargot" class="hero-wordmark-logo" />
-        
+
         <em>ADVENTURES</em>
       </h1>
       <div class="hero-bottom-line" aria-hidden="true"></div>
@@ -38,17 +38,28 @@ import Layout from "../layouts/Layout.astro";
   </main>
 
   <section class="split" id="destination">
+    <img
+      class="split-bg-topo"
+      src="/topographic-slow-movers.svg"
+      alt=""
+      aria-hidden="true"
+    />
     <div class="split-text">
       <p class="split-eyebrow">Why Escargot</p>
       <h2 class="split-title">
         <span>For the</span>
-        <span><em>Slow Movers</em></span>
+        <span>
+          <em>Slow Movers</em>
+        </span>
       </h2>
       <p class="split-copy">
-       We aim to connect with the lands we're exploring, the people we're engaging with and embrace the physical exertion that comes with traversing the globe under your own steam. 
-
+        We aim to connect with the lands we're exploring, the people we're
+        engaging with and embrace the physical exertion that comes with
+        traversing the globe under your own steam.
       </p>
-      <a class="split-cta" href="#trips">Explore trips</a>
+      <a class="split-cta" href="#trips">
+        Explore trips
+      </a>
       <img
         class="split-topo"
         src="/topographic-yellow.svg"
@@ -57,45 +68,74 @@ import Layout from "../layouts/Layout.astro";
       />
     </div>
     <div class="split-media">
-      <img src="/Depositphotos_92108696_XL.jpg" alt="Travel at the pace of discovery" />
+      <img
+        src="/Depositphotos_92108696_XL.jpg"
+        alt="Travel at the pace of discovery"
+      />
     </div>
   </section>
 
-  <section class="intro" id="about" >
+  <section class="intro" id="about">
+    <!-- <img
+      class="site-footer-topo"
+      src="/topographic.svg"
+      alt=""
+      aria-hidden="true"
+    /> -->
+
     <div class="intro-text">
-      <p>
-        Escargot is a travel agency — eco-friendly, focusing on cycling and
-        exotic tourism.
-      </p>
-      
-    </div>
- <div class="intro-cta">
-      <a class="intro-button" href="#contact">Book your trip</a>
+      <div class="intro-text-inner">
+        <p>
+          Escargot is a travel agency —
+          <em class="about-title-italic">eco-friendly</em>, focusing on cycling
+          and exotic tourism.
+        </p>
+
+        <p class="intro-sub">
+          Nothing in this world is free, but the satisfaction of powering
+          yourself through incredible landscapes and unforgettable experiences
+          is priceless. Slow down, come for a ride and let's see the world
+          together.
+        </p>
+
+        <div class="intro-cta">
+          <a class="intro-button" href="#contact">
+            Book your trip
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="features">
+    <!-- <img
+      class="site-footer-topo"
+      src="/topographic.svg"
+      alt=""
+      aria-hidden="true"
+    /> -->
+
     <div class="feature">
-      <img src="/Depositphotos_266141058_XL.jpg" alt="Cycling" />
-      <h3>Cycling</h3>
+      <img src="/topographic.svg" alt="Cycling" />
     </div>
     <div class="feature">
       <img src="/Depositphotos_531202820_XL.jpg" alt="Eco-friendly" />
-      <h3>Eco-friendly</h3>
-    </div>
-    <div class="feature">
-      <img src="/Depositphotos_59992179_XL.jpg" alt="Exotic tourism" />
-      <h3>Exotic tourism</h3>
     </div>
     <div class="feature">
       <img src="/Depositphotos_815678142_L.jpg" alt="Slow travel" />
-      <h3>Slow travel</h3>
+    </div>
+    <div class="feature">
+      <img src="/topographic.svg" alt="Cycling" />
     </div>
   </section>
 
- 
-
   <section class="statement">
+    <img
+      class="statement-bg-topo"
+      src="/topographic-slow-movers.svg"
+      alt=""
+      aria-hidden="true"
+    />
     <img
       class="statement-photo statement-photo--1"
       src="/Depositphotos_387914348_L.jpg"
@@ -118,19 +158,25 @@ import Layout from "../layouts/Layout.astro";
       <span class="statement-line">The slower</span>
       <span class="statement-line statement-line--indent-1">you go,</span>
       <span class="statement-line statement-line--indent-2">the more</span>
-      <span class="statement-line statement-line--indent-1">you <em>see.</em></span>
+      <span class="statement-line statement-line--indent-1">
+        you <em class="about-title-italic">see.</em>
+      </span>
     </h2>
   </section>
 
-    <section class="about">
+  <section class="about">
     <div class="about-heading">
       <h2 class="about-title">
-        <span class="about-title-italic">Slow down...</span>
         <br />
         come for a ride &amp; let's see the world together.
       </h2>
       <div class="trips-nav" role="group" aria-label="Trips navigation">
-        <button class="trips-nav-button" type="button" data-dir="prev" aria-label="Previous trips">
+        <button
+          class="trips-nav-button"
+          type="button"
+          data-dir="prev"
+          aria-label="Previous trips"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -142,7 +188,12 @@ import Layout from "../layouts/Layout.astro";
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
         </button>
-        <button class="trips-nav-button" type="button" data-dir="next" aria-label="Next trips">
+        <button
+          class="trips-nav-button"
+          type="button"
+          data-dir="next"
+          aria-label="Next trips"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -267,11 +318,11 @@ import Layout from "../layouts/Layout.astro";
   }
 
   /* .hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.35);
-  } */
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.35);
+    } */
 
   .hero-bottom {
     z-index: 3;
@@ -354,7 +405,7 @@ import Layout from "../layouts/Layout.astro";
     position: relative;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     width: 100%;
     background-color: #ffffff;
     padding: 2rem;
@@ -364,31 +415,45 @@ import Layout from "../layouts/Layout.astro";
   .intro-text {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .intro-text-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .intro-text p {
     font-family: "Instrument Serif", serif;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1.25rem, 3vw, 2.5rem);
     line-height: 1.2;
     color: #000000;
     max-width: 40ch;
   }
 
+  .intro-text .intro-sub {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #333333;
+    max-width: 80%;
+  }
+
   .intro-cta {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: center;
+    text-align: center;
   }
 
   .intro-button {
     font-family: "Instrument Serif", serif;
     font-size: 1.4rem;
     line-height: 1;
-    color: #000000;
-    background-color: #ffd700;
+    color: #ffffff;
+    background-color: #244a3f;
     padding: 0.5rem 1.5rem;
     border-radius: 5px;
     text-decoration: none;
@@ -417,6 +482,13 @@ import Layout from "../layouts/Layout.astro";
     gap: 0.75rem;
   }
 
+  .feature:nth-child(1),
+  .feature:nth-child(4) {
+    border: 1px solid #ffd700;
+    border-radius: 3vh;
+    padding: 0.25rem;
+  }
+
   .feature img {
     display: block;
     width: 100%;
@@ -434,12 +506,25 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .split {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     height: 100vh;
     background-color: #ffffff;
     /* padding: 2rem; */
+  }
+
+  .split-bg-topo {
+    position: absolute;
+    left: -7rem;
+    bottom: 0;
+    z-index: 0;
+    width: auto;
+    max-width: 30%;
+    height: auto;
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   .split-text {
@@ -450,7 +535,7 @@ import Layout from "../layouts/Layout.astro";
     justify-content: center;
     text-align: center;
     gap: 1.5rem;
-    padding: 4rem 2rem;
+    padding: 0 2rem;
   }
 
   .split-text > *:not(.split-topo) {
@@ -496,8 +581,8 @@ import Layout from "../layouts/Layout.astro";
     font-family: "Instrument Serif", serif;
     font-size: 1.4rem;
     line-height: 1;
-    color: #000000;
-    background-color: #ffd700;
+    color: #ffffff;
+    background-color: #244a3f;
     padding: 0.5rem 1.5rem;
     border-radius: 5px;
     text-decoration: none;
@@ -545,15 +630,29 @@ import Layout from "../layouts/Layout.astro";
   .statement-text {
     position: relative;
     z-index: 1;
-    font-family: Instrument Serif, serif;
+    font-family:
+      Instrument Serif,
+      serif;
     font-weight: 400;
     font-size: clamp(2.5rem, 7vw, 7rem);
     line-height: 0.9;
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     /* word-spacing: .35em; */
     text-align: center;
     color: #000;
     max-width: 22ch;
+  }
+
+  .statement-bg-topo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: auto;
+    max-width: 40%;
+    height: auto;
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   .statement-line {
@@ -576,21 +675,20 @@ import Layout from "../layouts/Layout.astro";
     position: absolute;
     z-index: 0;
     object-fit: cover;
-    border-radius: 1.5rem;
     width: clamp(6rem, 12vw, 12rem);
     aspect-ratio: 1 / 1;
   }
 
   .statement-photo--1 {
-    top: 12%;
-    left: 6%;
+    top: 32%;
+    left: 16%;
     transform: rotate(-8deg);
     width: clamp(6rem, 11vw, 11rem);
   }
 
   .statement-photo--2 {
     top: 40%;
-    right: 7%;
+    right: 17%;
     transform: rotate(6deg);
     width: clamp(5rem, 9vw, 9rem);
   }
@@ -635,7 +733,9 @@ import Layout from "../layouts/Layout.astro";
     background: transparent;
     color: #000000;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   .trips-nav-button:hover {
@@ -655,26 +755,29 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.05;
     letter-spacing: -0.02em;
     color: #000000;
-  
   }
 
   .about-title-italic {
     font-style: italic;
-      background-color: #53f62e;
+    color: #ffd325;
+    background-image: linear-gradient(#244a3f, #244a3f);
+    background-repeat: no-repeat;
+    background-size: 100% 75%;
+    background-position: 0 50%;
   }
 
   .about-cta {
     font-family: "Instrument Serif", serif;
     font-size: 1.6rem;
     line-height: 1;
-    color: #000000;
-    background-color: #ffd700;
+    color: #ffffff;
+    background-color: #244a3f;
     padding: 0.6rem 2rem;
     border-radius: 5px;
     text-decoration: none;
     white-space: nowrap;
     transition: transform 0.25s ease;
-        margin-left: 20vw;
+    margin-left: 20vw;
   }
 
   .about-cta:hover {
@@ -759,14 +862,13 @@ import Layout from "../layouts/Layout.astro";
       gap: 0.5rem;
       font-size: clamp(3rem, 20vw, 6rem);
       line-height: 1;
-      
     }
 
     .hero-wordmark-logo {
-    height: 10.5rem;
-        flex-shrink: 0;
-        z-index: -100000;
-        position: absolute;
+      height: 10.5rem;
+      flex-shrink: 0;
+      z-index: -100000;
+      position: absolute;
     }
 
     .about {
@@ -783,7 +885,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .intro-cta {
-      justify-content: flex-start;
+      justify-content: center;
     }
 
     .features {
@@ -812,6 +914,7 @@ import Layout from "../layouts/Layout.astro";
     .split-media img {
       aspect-ratio: 4 / 3;
       height: auto;
+      padding: 0 2rem;
     }
 
     .statement {
@@ -867,7 +970,7 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
-@media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     .hero-video {
       display: none;
     }
@@ -887,7 +990,9 @@ import Layout from "../layouts/Layout.astro";
   });
 
   const heroImgs = Array.from(document.querySelectorAll(".hero-bg img"));
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   if (heroImgs.length >= 1 && !reduceMotion) {
     heroImgs[0].src = heroPhotos[0];
@@ -922,7 +1027,8 @@ import Layout from "../layouts/Layout.astro";
     const step = () => {
       const card = scroll.querySelector(".trip-card");
       if (!card) return scroll.clientWidth;
-      const gap = parseFloat(getComputedStyle(card.parentElement).columnGap) || 0;
+      const gap =
+        parseFloat(getComputedStyle(card.parentElement).columnGap) || 0;
       return card.getBoundingClientRect().width + gap;
     };
 
