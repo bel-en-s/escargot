@@ -1,0 +1,176 @@
+---
+---
+
+<form class="contact-form">
+  
+  <h2 class="contact-title">Ready to Travel different?</h2>
+
+  <div class="contact-grid">
+    <label class="contact-field">
+      <span class="contact-label">My name is...</span>
+      <input type="text" name="name" placeholder="Anna" />
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">My surname is...</span>
+      <input type="text" name="surname" placeholder="Garcia" />
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">You can email me at...</span>
+      <input type="email" name="email" placeholder="ana@gmail.com" />
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">Or message me at...</span>
+      <input type="tel" name="phone" placeholder="+598 99 1234567" />
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">I want to travel to...</span>
+      <input type="text" name="destination" placeholder="Paris" />
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">We are...</span>
+      <input type="text" name="people" placeholder="2 people" />
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">It's a...</span>
+      <select name="tripType">
+        <option value="" selected disabled>Select...</option>
+        <option value="adventure">Adventure</option>
+        <option value="leisure">Leisure</option>
+        <option value="business">Business</option>
+        <option value="honeymoon">Honeymoon</option>
+        <option value="family">Family</option>
+      </select>
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">In...</span>
+      <input type="text" name="month" placeholder="July" />
+    </label>
+  </div>
+
+  <label class="contact-message">
+    <span class="contact-label">I'd also like to tell you...</span>
+    <textarea
+      name="message"
+      rows="4"
+      placeholder="We're celebrating an anniversary and we love hiking..."
+    ></textarea>
+  </label>
+
+  <button class="contact-submit" type="submit">Send</button>
+</form>
+
+<style>
+  .contact-form {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 4rem;
+
+  }
+
+  .contact-title {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    text-align: center;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+    row-gap: 3rem;
+  }
+
+  .contact-field,
+  .contact-message {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-label {
+    font-family: "Instrument Serif", serif;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #000000;
+        text-align: justify;
+  }
+
+  .contact-field input,
+  .contact-field select,
+  .contact-message textarea {
+    width: 100%;
+    font-family: "Instrument Serif", serif;
+    font-size: 1.15rem;
+    color: #000000;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+    padding: 0.5rem 0;
+    outline: none;
+  }
+
+  .contact-field select {
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .contact-message textarea {
+    resize: vertical;
+    line-height: 1.4;
+  }
+
+  .contact-field input::placeholder,
+  .contact-message textarea::placeholder {
+    color: #a6a49a;
+  }
+
+  .contact-message {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .contact-submit {
+    align-self: center;
+    font-family: "Instrument Serif", serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #000000;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 3rem;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+  }
+
+  .contact-submit:hover {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 700px) {
+    .contact-form {
+      padding: 2rem 1.5rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

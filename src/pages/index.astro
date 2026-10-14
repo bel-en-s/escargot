@@ -4,22 +4,711 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <main>
-    <h1>Escargot Adventures</h1>
+    <div class="hero-bg" aria-hidden="true">
+      <img src="/landing.jpg" alt="" />
+    </div>
+    <!-- <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+
+    >
+      <source src="/hero-video1.mp4" type="video/mp4" />
+    </video> -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-bottom">
+      <span>For the</span>
+      <h1 class="hero-wordmark">
+        <span>ESCARGOT</span>
+        <img src="/hero-solo.svg" alt="Escargot" class="hero-wordmark-logo" />
+        
+        <em>ADVENTURES</em>
+      </h1>
+      <span>conscious traveller</span>
+    </div>
   </main>
+
+  <section class="split" id="destination">
+    <div class="split-text">
+      <p class="split-eyebrow">Why Escargot</p>
+      <h2 class="split-title">
+        Travel at the pace
+        <em>of discovery</em>
+      </h2>
+      <p class="split-copy">
+        We craft small-group journeys that take their time — so you can soak in
+        every place, every person, every moment.
+      </p>
+      <a class="split-cta" href="#trips">Explore trips</a>
+    </div>
+    <div class="split-media">
+      <img src="/Depositphotos_92108696_XL.jpg" alt="Travel at the pace of discovery" />
+    </div>
+  </section>
+
+  <section class="statement">
+    <img
+      class="statement-photo statement-photo--1"
+      src="/Depositphotos_387914348_L.jpg"
+      alt=""
+      aria-hidden="true"
+    />
+    <img
+      class="statement-photo statement-photo--2"
+      src="/Depositphotos_685080838_XL (1).jpg"
+      alt=""
+      aria-hidden="true"
+    />
+    <img
+      class="statement-photo statement-photo--3"
+      src="/Depositphotos_531202820_XL.jpg"
+      alt=""
+      aria-hidden="true"
+    />
+    <h2 class="statement-text">
+      <span class="statement-line">The slower</span>
+      <span class="statement-line statement-line--indent-1">you go,</span>
+      <span class="statement-line statement-line--indent-2">the more</span>
+      <span class="statement-line statement-line--indent-1">you <em>see.</em></span>
+    </h2>
+  </section>
+
+    <section id="about" class="about">
+    <div class="about-heading">
+      <h2 class="about-title">
+        <span class="about-title-italic">Slow down...</span>
+        <br />
+        come for a ride &amp; let's see the world together.
+      </h2>
+      <div class="trips-nav" role="group" aria-label="Trips navigation">
+        <button class="trips-nav-button" type="button" data-dir="prev" aria-label="Previous trips">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="trips-nav-button" type="button" data-dir="next" aria-label="Next trips">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <!-- <a class="about-cta" href="#trips">Explore trips</a> -->
+    </div>
+  </section>
+
+  <section class="trips" id="trips">
+    <div class="trips-scroll" id="trips-scroll">
+      <div class="trips-grid">
+        <div class="trip-card">
+          <img src="/Depositphotos_266141058_XL.jpg" alt="Cycling the Coast" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Cycling the Coast</h3>
+            <p class="trip-card-text">Pedal along the sea</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="/Depositphotos_531202820_XL.jpg" alt="Mountain Trails" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Mountain Trails</h3>
+            <p class="trip-card-text">Ride the highlands</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="/Depositphotos_59992179_XL.jpg" alt="Island Getaway" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Island Getaway</h3>
+            <p class="trip-card-text">Slow days on the water</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="/Depositphotos_815678142_L.jpg" alt="Wine Country" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Wine Country</h3>
+            <p class="trip-card-text">Vineyards by bike</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="/Depositphotos_266141058_XL.jpg" alt="Cycling the Coast" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Cycling the Coast</h3>
+            <p class="trip-card-text">Pedal along the sea</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="/Depositphotos_531202820_XL.jpg" alt="Mountain Trails" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Mountain Trails</h3>
+            <p class="trip-card-text">Ride the highlands</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="/Depositphotos_59992179_XL.jpg" alt="Island Getaway" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Island Getaway</h3>
+            <p class="trip-card-text">Slow days on the water</p>
+          </div>
+        </div>
+        <div class="trip-card">
+          <img src="/Depositphotos_815678142_L.jpg" alt="Wine Country" />
+          <div class="trip-card-body">
+            <h3 class="trip-card-title">Wine Country</h3>
+            <p class="trip-card-text">Vineyards by bike</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
   main {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    clip-path: polygon(2% 2%, 98% 2%, 98% 98%, 2% 98%);
+    will-change: clip-path;
+  }
+
+  .hero-bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    padding: 9vh 1vh 1vh;
+    border-radius: 0 0 3vh 3vh;
+  }
+
+  /* .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.35);
+  } */
+
+  .hero-bottom {
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0 2rem 2rem;
+  }
+
+  .hero-wordmark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(3.5rem, 10vw, 11rem);
+    line-height: 0.8;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-wordmark em {
+    font-style: italic;
+  }
+
+  .hero-wordmark-logo {
+    height: 0.85em;
+    width: auto;
+    object-fit: contain;
   }
 
   h1 {
     font-family: "Instrument Serif", serif;
     font-weight: 400;
-    font-size: clamp(3rem, 8vw, 8rem);
-    line-height: 0.85;
+    font-size: clamp(1.75rem, 4.5vw, 4.5rem);
+    line-height: 0.8;
     letter-spacing: -0.02em;
+    max-width: 24ch;
+    color: #000000;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+    /* background-color: green; */
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem;
+  }
+
+  .split-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 4rem 2rem;
+  }
+
+  .split-eyebrow {
+    font-family: "Playfair Display", serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #333333;
+  }
+
+  .split-title {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #000000;
+    width: 50%;
+  }
+
+  .split-title em {
+    font-style: italic;
+  }
+
+  .split-copy {
+    font-family: "Instrument Serif", serif;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    max-width: 34ch;
+    color: #333333;
+  }
+
+  .split-cta {
+    font-family: "Instrument Serif", serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #000000;
+    background-color: #ffd700;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+  }
+
+  .split-cta:hover {
+    transform: scale(1.04);
+  }
+
+  .split-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 50px;
+  }
+
+  .statement {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 7rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    overflow: hidden;
+  }
+
+  .statement-text {
+    position: relative;
+    z-index: 1;
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 7vw, 7rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    word-spacing: 0.35em;
+    text-align: center;
+    color: #000000;
+    max-width: 22ch;
+  }
+
+  .statement-line {
+    display: block;
+  }
+
+  .statement-line--indent-1 {
+    margin-left: 3ch;
+  }
+
+  .statement-line--indent-2 {
+    margin-left: 6ch;
+  }
+
+  .statement-line em {
+    font-style: italic;
+  }
+
+  .statement-photo {
+    position: absolute;
+    z-index: 0;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    width: clamp(6rem, 12vw, 12rem);
+    aspect-ratio: 1 / 1;
+  }
+
+  .statement-photo--1 {
+    top: 12%;
+    left: 6%;
+    transform: rotate(-8deg);
+    width: clamp(6rem, 11vw, 11rem);
+  }
+
+  .statement-photo--2 {
+    top: 40%;
+    right: 7%;
+    transform: rotate(6deg);
+    width: clamp(5rem, 9vw, 9rem);
+  }
+
+  .statement-photo--3 {
+    bottom: 10%;
+    left: 30%;
+    transform: rotate(3deg);
+    width: clamp(7rem, 13vw, 13rem);
+  }
+
+  .about {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem 2rem 0rem;
+  }
+
+  .about-heading {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    /* text-align: center; */
+  }
+
+  .trips-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+
+  .trips-nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .trips-nav-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .trips-nav-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .about-title {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #000000;
+  
+  }
+
+  .about-title-italic {
+    font-style: italic;
+      background-color: #53f62e;
+  }
+
+  .about-cta {
+    font-family: "Instrument Serif", serif;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: #000000;
+    background-color: #ffd700;
+    padding: 0.6rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.25s ease;
+        margin-left: 20vw;
+  }
+
+  .about-cta:hover {
+    transform: scale(1.04);
+  }
+
+  .trips {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0.5rem 2rem;
+  }
+
+  .trips-scroll {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .trips-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trips-grid {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .trip-card {
+    flex: 0 0 calc(25% - (1.5rem * 3 / 4));
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trip-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 0 0 3vh 3vh;
+  }
+
+  .trip-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .trip-card-title {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #000000;
+  }
+
+  .trip-card-text {
+    font-family: "Instrument Serif", serif;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #333333;
+  }
+
+  @media (max-width: 700px) {
+    .hero-bottom {
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .hero-wordmark {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      font-size: clamp(3rem, 20vw, 6rem);
+      line-height: 1;
+      
+    }
+
+    .hero-wordmark-logo {
+    height: 10.5rem;
+        flex-shrink: 0;
+        z-index: -100000;
+        position: absolute;
+    }
+
+    .about {
+      padding: 6rem 1.5rem 1.5rem;
+    }
+
+    .about-title {
+      font-size: 8.5vw;
+    }
+
+    .split {
+      grid-template-columns: 1fr;
+    }
+
+    .split-text {
+      padding: 3rem 1.5rem;
+      order: 2;
+    }
+
+    .split-media {
+      order: 1;
+    }
+
+    .split-media img {
+      aspect-ratio: 4 / 3;
+      height: auto;
+    }
+
+    .statement {
+      padding: 4rem 1.5rem;
+      min-height: 0;
+    }
+
+    .statement-text {
+      word-spacing: 0.25em;
+    }
+
+    .statement-photo {
+      width: clamp(4rem, 18vw, 6rem);
+      border-radius: 1rem;
+    }
+
+    .statement-photo--1 {
+      top: 8%;
+      left: 4%;
+    }
+
+    .statement-photo--2 {
+      top: 34%;
+      right: 4%;
+      width: clamp(3.5rem, 15vw, 5rem);
+    }
+
+    .statement-photo--3 {
+      bottom: 8%;
+      left: 14%;
+      width: clamp(4.5rem, 20vw, 7rem);
+    }
+
+    .trips-nav {
+      margin-left: 0;
+    }
+
+    .trips {
+      padding: 0.5rem 1.5rem;
+    }
+
+    .trips-scroll {
+      scroll-snap-type: x mandatory;
+    }
+
+    .trips-grid {
+      gap: 1rem;
+    }
+
+    .trip-card {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+  }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-video {
+      display: none;
+    }
+
+    .hero-bg {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+  import { CustomEase } from "gsap/CustomEase";
+
+  gsap.registerPlugin(CustomEase);
+  CustomEase.create("hop", "0.9, 0, 0.1, 1");
+
+  const heroBg = document.querySelector(".hero-bg");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (heroBg && !reducedMotion) {
+    const tl = gsap.timeline({ delay: 0.15 });
+
+    tl.to(heroBg, {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      duration: 2,
+      ease: "hop",
+    });
+  }
+
+  const scroll = document.getElementById("trips-scroll");
+  const prev = document.querySelector('[data-dir="prev"]');
+  const next = document.querySelector('[data-dir="next"]');
+
+  if (scroll && prev && next) {
+    const step = () => {
+      const card = scroll.querySelector(".trip-card");
+      if (!card) return scroll.clientWidth;
+      const gap = parseFloat(getComputedStyle(card.parentElement).columnGap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    prev.addEventListener("click", () => {
+      scroll.scrollBy({ left: -step(), behavior: "smooth" });
+    });
+
+    next.addEventListener("click", () => {
+      scroll.scrollBy({ left: step(), behavior: "smooth" });
+    });
+  }
+</script>

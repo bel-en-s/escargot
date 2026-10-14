@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -16,7 +17,7 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -34,8 +35,32 @@ const {
   <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+  gsap.registerPlugin(ScrollToPlugin);
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
+      if (!href || href.length < 2) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      event.preventDefault();
+      gsap.to(window, {
+        scrollTo: { y: target, offsetY: 80 },
+        duration: 1.4,
+        ease: "power4.inOut",
+      });
+    });
+  });
+</script>
 
 <style is:global>
   :root {
